@@ -15,6 +15,9 @@
   --dark-accent: #64FFDA;
   --dark-secondary: #FF8E3C;
 }
+body, section {
+  transition: all 0.3s ease-in-out;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
@@ -256,7 +259,143 @@ footer {
   margin-top: 3rem;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
+@keyframes slideFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+section {
+  animation: slideFadeIn 0.6s ease both;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+    margin-top: 1rem;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .accordion-btn {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .accordion-content {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  .modal-content {
+    width: 90%;
+    max-width: 90%;
+    padding: 1.5rem;
+  }
+
+  .contact-icons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  #contact ul {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-brand {
+    font-size: 1rem;
+  }
+
+  .btn-accent {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .icon-svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  #navMenu {
+    display: none;
+    width: 100%;
+  }
+
+  #navMenu.active {
+    display: block;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links li {
+    width: 100%;
+    padding: 0.5rem 0;
+  }
+}
+@media print {
+  header, .actions, .modal, footer, .hamburger {
+    display: none !important;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+
+  section {
+    page-break-inside: avoid;
+    margin-bottom: 1rem;
+  }
+}
+
