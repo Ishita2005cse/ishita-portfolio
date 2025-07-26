@@ -44,3 +44,6 @@ window.addEventListener("scroll", () => {
     }
   });
 });
+document.getElementById("hamburger").addEventListener("click", () => {
+  document.getElementById("navMenu").classList.toggle("active");
+});
